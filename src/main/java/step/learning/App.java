@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-       new Basics().run();
+       //new Basics().run();
+        new FileIO().run();
     }
 }
