@@ -2,6 +2,7 @@ package step.learning.oop;
 
 public class Map extends Literature{
     private final int scale;
+
     public int getScale() {
         return scale;
     }
