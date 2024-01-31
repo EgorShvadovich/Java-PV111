@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
-import org.json.JSONArray;
 
 public class FileIO {
     public void run(){
@@ -31,10 +30,10 @@ public class FileIO {
         System.out.println(j2.toString());
     }
     private void listDemo() {
-        // одержання переліку файлів у директорії
-        String filename = "." + File.separator;  // ".\" - current directory
+
+        String filename = "." + File.separator;
         File f = new File(filename);
-        // f.listFiles() - перелік файлових об'єктів (File[])
+
         File[] files = f.listFiles();
         if (files == null) {
             System.err.println("Access denied");
