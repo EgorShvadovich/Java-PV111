@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Newspaper extends Literature {
+public class Newspaper extends Literature implements Periodic {
 
     private final Date date;
 
@@ -23,5 +23,10 @@ public class Newspaper extends Literature {
         return String.format
                 ("Newspaper. Title: '%s'. Date: '%s'",super.getTitle(),locFormat.format(this.getDate()));
 
+    }
+
+    @Override
+    public String getPeriod() {
+        return "Daily";
     }
 }
