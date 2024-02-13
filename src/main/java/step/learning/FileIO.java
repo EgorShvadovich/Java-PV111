@@ -13,9 +13,9 @@ import java.util.Scanner;
 
 public class FileIO {
     public void run(){
-        listDemo();
+        //listDemo();
         //fsDemo();
-        //ioDemo();
+        ioDemo();
         //readStreamDemo();
         //gsonDemo();
     }
@@ -135,16 +135,16 @@ public class FileIO {
         }
 
 
-        try(Scanner scanner = new Scanner(new FileInputStream("file.txt"))){
-            while(scanner.hasNext()){
-                System.out.println(scanner.next());
-            }
-            System.out.println();
-        }
-        catch (IOException ex)
-        {
-            System.err.println(ex.getMessage());
-        }
+//        try(Scanner scanner = new Scanner(new FileInputStream("file.txt"))){
+//            while(scanner.hasNext()){
+//                System.out.println(scanner.next());
+//            }
+//            System.out.println();
+//        }
+//        catch (IOException ex)
+//        {
+//            System.err.println(ex.getMessage());
+//        }
 
 
         Scanner khScanner = new Scanner(System.in); //keyboard scanner
@@ -182,5 +182,32 @@ public class FileIO {
         return byteBuilder.toString();
     }
 
+    private void JsonPhone(){
+        JsonObject json = new JsonObject();
+        Scanner khScanner = new Scanner(System.in); //keyboard scanner
+
+
+        System.out.print("Your name: ");
+
+        String name = khScanner.next();
+
+
+        json.addProperty("name",name);
+        System.out.println(json.toString());
+
+
+        try (FileWriter writer = new FileWriter("phone.txt"))
+        {
+            writer.write(String.valueOf(json));
+            //writeStream.close();
+        }
+        catch(IOException ex){
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(json.toString());
+        JsonObject j2 = JsonParser.parseString(json.toString()).getAsJsonObject();
+        System.out.println(j2.toString());
+    }
 
 }
